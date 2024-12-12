@@ -1,0 +1,64 @@
+[2024-11-29 14:05:53] [::1] [admin] [Logout] 
+[2024-11-29 14:06:01] [::1] [admin] [Login] Success
+[2024-11-29 14:06:03] [::1] [admin] [Update Premium Reset] Success
+[2024-11-29 14:06:07] [::1] [admin] [Update Premium Reset] Success
+[2024-11-29 14:06:10] [::1] [admin] [Logout] 
+[2024-11-29 14:06:13] [::1] [gabri] [Login] Success
+[2024-11-29 14:06:23] [::1] [gabri] [Logout] 
+[2024-11-30 13:15:27] [::1] [gabri] [Login] Success
+[2024-11-30 13:15:46] [::1] [gabri] [Logout] 
+[2024-11-30 13:18:06] [::1] [gabri] [Login] Success
+[2024-11-30 13:18:24] [::1] [gabri] [Logout] 
+[2024-11-30 13:24:43] [::1] [gabri] [Login] Success
+[2024-11-30 13:25:38] [::1] [gabri] [Logout] 
+[2024-11-30 13:25:44] [::1] [gabri] [Login] Success
+[2024-11-30 13:26:05] [::1] [gabri] [Logout] 
+[2024-12-05 13:22:16] [::1] [admin] [Login] Insuccess - incorrect credentials
+[2024-12-06 18:40:57] [::1] [admin] [Login] Success
+[2024-12-06 18:47:23] [::1] [admin] [Logout] 
+[2024-12-06 18:47:37] [::1] [admin] [Login] Success
+[2024-12-06 18:50:20] [::1] [admin] [Logout] 
+[2024-12-06 18:50:33] [::1] [admin] [Login] Insuccess - incorrect credentials
+[2024-12-06 18:50:42] [::1] [admin] [Login] Success
+[2024-12-06 18:52:29] [::1] [admin] [Update Premium] Insuccess - invalid token
+[2024-12-06 18:54:44] [::1] [admin] [Update Premium Reset] Success
+[2024-12-06 18:54:52] [::1] [admin] [Update Premium Reset] Success
+[2024-12-06 18:55:41] [::1] [admin] [Logout] 
+[2024-12-06 19:35:27] [::1] [] [Request PSW Reset] Insuccess - expired timestamp
+[2024-12-07 11:51:40] [::1] [] [Request PSW Reset] Insuccess - expired timestamp
+[2024-12-07 11:51:43] [::1] [] [Request PSW Reset] Insuccess - expired timestamp
+[2024-12-08 14:59:23] [::1] [] [PSW Reset] Insuccess - missing credentials
+[2024-12-08 15:00:02] [::1] [] [PSW Reset] Insuccess - invalid or expired token
+[2024-12-08 15:02:05] [::1] [] [PSW Reset] Insuccess - invalid or expired token
+[2024-12-08 15:43:34] [::1] [] [PSW Reset] Insuccess - expired timestamp
+[2024-12-08 15:44:29] [::1] [] [PSW Reset] Insuccess - expired timestamp
+[2024-12-08 15:44:39] [::1] [] [PSW Reset] Insuccess - invalid or expired token
+[2024-12-08 15:46:53] [::1] [] [PSW Reset] Insuccess - invalid or expired token
+[2024-12-08 15:51:04] [::1] [Array] [PSW Reset] Success
+[2024-12-08 15:51:26] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-08 15:55:09] [::1] [gabri00] [Register] Success
+[2024-12-08 15:55:25] [::1] [gabri00] [Register] Insuccess - username or email already in use
+[2024-12-08 15:56:49] [::1] [gabri00] [Register] Success
+[2024-12-08 15:59:01] [::1] [gabri00] [Register] Success
+[2024-12-08 16:02:34] [::1] [gabri00] [Register] Success
+[2024-12-08 16:03:09] [::1] [gabri00] [Login] Success
+[2024-12-08 16:03:13] [::1] [gabri00] [Logout] 
+[2024-12-08 16:06:44] [::1] [Array] [PSW Reset] Success
+[2024-12-08 16:07:16] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-08 16:07:48] [::1] [gabri00] [Login] Insuccess - incorrect credentials
+[2024-12-08 16:11:11] [::1] [] [PSW Reset] Insuccess - invalid or expired token
+[2024-12-08 16:14:56] [::1] [gabri00] [PSW Reset] Success
+[2024-12-08 16:15:22] [::1] [gabri00] [Login] Success
+[2024-12-08 16:15:25] [::1] [gabri00] [Logout] 
+[2024-12-08 16:21:03] [::1] [gabri00] [PSW Reset] Success
+[2024-12-12 10:35:50] [::1] [admin] [Login] Success
+[2024-12-12 10:35:58] [::1] [admin] [Logout] 
+[2024-12-12 10:36:08] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-12 10:37:08] [::1] [gabri] [Register] Success
+[2024-12-12 10:37:22] [::1] [gabri] [Login] Success
+[2024-12-12 10:38:25] [::1] [] [Insert LG Novel] Insuccess - exceeded the maximum file size
+[2024-12-12 10:38:42] [::1] [gabri] [Logout] 
+[2024-12-12 10:38:52] [::1] [gabri] [Login] Success
+[2024-12-12 10:40:57] [::1] [gabri] [Logout] 
+[2024-12-12 10:47:18] [::1] [gabri0] [Register] Insuccess - invalid input data
+[2024-12-12 10:48:26] [::1] [simo] [Register] Insuccess - invalid input data
