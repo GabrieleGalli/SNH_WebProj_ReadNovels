@@ -21,6 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $TOKEN_RST) {
     }
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['r'])) {
+    $r = sanitize_input(base64_decode($_GET['r']));
+    if ($r == '1') {
+        echo '<div class="alert alert-danger">Password cannot be the same as the previous one!</div>';
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //** Check CSRF Token */
@@ -28,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         logEvent('PSW Reset', 'Insuccess - invalid token', '');
         die('Invalid CSRF token');
     }
+    refreshToken();
 
     //** Check Timestamp */
     if (!isset($_POST['timestamp']) || !isTimestampValid($_POST['timestamp'])) {
@@ -45,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die('Missing or wrong-format credentials.');
         }
 
+        $TOKEN_RST = $_POST['rst_token'];
         $newPassword = password_hash($_POST['password1'], PASSWORD_BCRYPT);
         $isTokenValid = $Token->verifyValidityTknPswReset($_POST['rst_token']); // esiste una richiesta di reset della psw
 
@@ -55,6 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $userId = $isTokenValid['ID_U'];
         $user = $User->getUserByID($userId);
+        $old_psw = $user['PASSWORD'];
+
+
+        if (password_verify($_POST['password1'], $old_psw)) {
+            logEvent('PSW Reset', 'Insuccess - error in updating password, same password', $user);
+            header('Location: psw_reset.php?token=' . $TOKEN_RST . '&r=' . base64_encode('1'));
+            exit;
+        }
 
         if (!$User->updatePsw($userId, $newPassword)) {
             logEvent('PSW Reset', 'Insuccess - error in updating password', $user);

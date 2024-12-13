@@ -38,6 +38,7 @@ $USERS = $User->getAllUsers();
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#">Admin Control Panel</a>
+                    <a class="nav-link" href="dashboard.php">Dashboard</a>
                     <a class="nav-link" href="incl/logout.php">Logout</a>
                 </div>
             </div>

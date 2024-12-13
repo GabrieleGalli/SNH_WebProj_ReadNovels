@@ -40,7 +40,7 @@ class User
             $psw = sanitize_input($psw);
 
             if (
-                !filter_var($premium, FILTER_VALIDATE_INT) ||
+                !in_array($premium, ['0', '1'], true) ||
                 !filter_var($email, FILTER_VALIDATE_EMAIL) ||
                 !$usrname || !$name || !$surname || !$psw
             ) {
@@ -306,7 +306,7 @@ class User
 
             if (
                 !filter_var($idU, FILTER_VALIDATE_INT) ||
-                !filter_var($premium, FILTER_VALIDATE_INT)
+                !in_array($premium, ['0', '1'], true)
             ) {
                 throw new Exception("Invalid input data.");
             }

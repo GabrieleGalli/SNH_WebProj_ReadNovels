@@ -4,12 +4,14 @@ require_once 'crud.php';
 require_once 'user.php';
 require_once 'token.php';
 
+const ENV = __DIR__ . '/../incl/.env';
+$ENV = parse_ini_file(ENV);
 
-$host = 'localhost';
-$db_name = 'snh_webproj_novels';
-$db_user = 'root';
-$db_pass = '';
-$charset = 'utf8mb4';
+$host = $ENV['host'];
+$db_name = $ENV['db_name'];
+$db_user = $ENV['db_user'];
+$db_pass = $ENV['db_pass'];
+$charset = $ENV['charset'];
 
 $dsn = "mysql:host=$host;dbname=$db_name;charset=$charset";
 

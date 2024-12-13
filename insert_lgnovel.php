@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         logEvent('Insert LG Novel', 'Insuccess - invalid token', '');
         die('Invalid CSRF token');
     }
+    refreshToken();
 
     $novel_title = sanitize_input($_POST['title']);
     $premium_set = isset($_POST['premium']) ? 1 : 0;
@@ -58,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     } else {
                         echo '<div class="alert alert-danger">There was an error saving the novel.</div>';
                         logEvent('Insert LG Novel', 'Insuccess - error saving the novel', '');
-
                     }
                 } else {
                     echo '<div class="alert alert-danger">Failed to upload the file.</div>';

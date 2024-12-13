@@ -5,7 +5,7 @@ require_once 'incl/auth_check.php';
 require_once 'incl/utils.php';
 require_once 'incl/security_headers.php';
 
-define('DOWNLOAD_DIR', 'uploads/long_novels/');
+const DOWNLOAD_DIR = '../uploads/long_novels/';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         logEvent('Delete novel', 'Insuccess - invalid token', '');
         die('Invalid or missing CSRF token.');
     }
+    refreshToken();
 
     $novel_id = sanitize_input($_POST['novel_id']);
     $novel_type = sanitize_input($_POST['novel_type']);

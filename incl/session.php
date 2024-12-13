@@ -22,7 +22,7 @@ ini_set('session.cookie_secure', '1'); // Cookie della sessione solo su HTTPS
 session_start();
 
 if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    refreshToken();
 }
 
 session_regenerate_id(true);

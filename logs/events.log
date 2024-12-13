@@ -62,3 +62,74 @@
 [2024-12-12 10:40:57] [::1] [gabri] [Logout] 
 [2024-12-12 10:47:18] [::1] [gabri0] [Register] Insuccess - invalid input data
 [2024-12-12 10:48:26] [::1] [simo] [Register] Insuccess - invalid input data
+[2024-12-13 09:12:00] [::1] [gabri] [Register] Insuccess - invalid input data
+[2024-12-13 09:13:39] [::1] [gabri] [Register] Insuccess - invalid input data
+[2024-12-13 09:14:31] [::1] [gabri] [Register] Insuccess - invalid input data
+[2024-12-13 09:16:01] [::1] [gabri] [Login] Insuccess - incorrect password matching
+[2024-12-13 09:16:51] [::1] [gabri] [Register] Insuccess - username or email already in use
+[2024-12-13 09:18:18] [::1] [gabri] [Register] Insuccess - invalid input data
+[2024-12-13 09:19:39] [::1] [gabri] [Register] Insuccess - invalid input data
+[2024-12-13 09:19:49] [::1] [gabri] [Register] Insuccess - invalid input data
+[2024-12-13 09:24:25] [::1] [gabri] [Register] Insuccess - username or email already in use
+[2024-12-13 09:24:37] [::1] [gabri] [Register] Insuccess - username or email already in use
+[2024-12-13 09:24:49] [::1] [gabri] [Register] Insuccess - username or email already in use
+[2024-12-13 09:25:04] [::1] [] [Register] Insuccess - too many tries
+[2024-12-13 09:29:25] [::1] [gabri0] [Register] Success
+[2024-12-13 09:34:03] [::1] [gabri0] [Register] Success
+[2024-12-13 09:34:20] [::1] [gabri] [Register] Insuccess - username or email already in use
+[2024-12-13 09:50:18] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-13 09:50:45] [::1] [gabri] [Login] Success
+[2024-12-13 09:52:39] [::1] [gabri] [Logout] 
+[2024-12-13 09:53:00] [::1] [simo] [Register] Success
+[2024-12-13 09:53:10] [::1] [simo] [Login] Success
+[2024-12-13 09:53:15] [::1] [simo] [Logout] 
+[2024-12-13 09:53:25] [::1] [admin] [Login] Success
+[2024-12-13 09:53:26] [::1] [admin] [Update Premium Reset] Success
+[2024-12-13 09:53:29] [::1] [admin] [Logout] 
+[2024-12-13 09:53:37] [::1] [simo] [Login] Success
+[2024-12-13 09:54:07] [::1] [] [Insert LG Novel] Insuccess - exceeded the maximum file size
+[2024-12-13 09:54:15] [::1] [] [Insert LG Novel] Insuccess - exceeded the maximum file size
+[2024-12-13 09:54:29] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2024-12-13 09:55:02] [::1] [simo] [Logout] 
+[2024-12-13 09:55:08] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-13 09:55:14] [::1] [gabri] [Login] Success
+[2024-12-13 09:55:47] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2024-12-13 09:56:08] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2024-12-13 09:56:20] [::1] [gabri] [Logout] 
+[2024-12-13 09:56:26] [::1] [simo] [Login] Success
+[2024-12-13 09:56:58] [::1] [simo] [Logout] 
+[2024-12-13 09:57:17] [::1] [gabri] [Login] Success
+[2024-12-13 09:57:35] [::1] [gabri] [Logout] 
+[2024-12-13 09:57:43] [::1] [simo] [Login] Success
+[2024-12-13 10:02:25] [::1] [simo] [Logout] 
+[2024-12-13 10:02:28] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-13 10:02:46] [::1] [admin] [Login] Insuccess - incorrect credentials
+[2024-12-13 10:03:25] [::1] [admin] [Register] Success
+[2024-12-13 10:03:33] [::1] [admin] [Login] Success
+[2024-12-13 10:03:36] [::1] [admin] [Update Premium Reset] Success
+[2024-12-13 10:03:57] [::1] [admin] [Logout] 
+[2024-12-13 10:04:04] [::1] [simo] [Login] Success
+[2024-12-13 10:04:11] [::1] [simo] [Logout] 
+[2024-12-13 10:04:15] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-13 10:04:22] [::1] [gabri] [Login] Success
+[2024-12-13 10:09:54] [::1] [gabri] [Logout] 
+[2024-12-13 10:10:07] [::1] [admin] [Login] Success
+[2024-12-13 10:13:10] [::1] [admin] [Logout] 
+[2024-12-13 10:23:26] [::1] [gabri] [PSW Reset] Success
+[2024-12-13 10:24:13] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2024-12-13 10:30:02] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2024-12-13 10:30:47] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2024-12-13 10:38:23] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2024-12-13 10:41:00] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2024-12-13 10:43:11] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2024-12-13 10:43:59] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2024-12-13 10:44:22] [::1] [gabri] [PSW Reset] Success
+[2024-12-13 10:44:32] [::1] [gabri] [Login] Success
+[2024-12-13 10:45:56] [::1] [gabri] [Logout] 
+[2024-12-13 10:46:01] [::1] [admin] [Login] Success
+[2024-12-13 10:56:20] [::1] [admin] [Logout] 
+[2024-12-13 10:58:09] [::1] [gabri] [Login] Success
+[2024-12-13 10:58:15] [::1] [gabri] [Logout] 
+[2024-12-13 11:00:58] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2024-12-13 11:01:05] [::1] [gabri] [Login] Success
+[2024-12-13 11:01:08] [::1] [gabri] [Logout] 

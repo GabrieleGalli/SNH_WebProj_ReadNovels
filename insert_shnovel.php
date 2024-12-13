@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         logEvent('Insert SH Novel', 'Insuccess - invalid token', '');
         die('Invalid CSRF token');
     }
+    refreshToken();
 
     $novel_title = sanitize_input($_POST['title']);
     $novel_content = sanitize_input($_POST['content']);

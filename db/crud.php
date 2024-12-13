@@ -27,7 +27,7 @@ class Crud
 
             if (
                 !filter_var($id_u, FILTER_VALIDATE_INT) ||
-                !filter_var($premium, FILTER_VALIDATE_INT) ||
+                !in_array($premium, ['0', '1'], true) ||
                 !$title || !$content
             ) {
                 throw new Exception("Invalid input data.");
@@ -62,7 +62,7 @@ class Crud
 
             if (
                 !filter_var($id_u, FILTER_VALIDATE_INT) ||
-                !filter_var($premium, FILTER_VALIDATE_INT) ||
+                !in_array($premium, ['0', '1'], true) ||
                 !$title || !$fileName
             ) {
                 throw new Exception("Invalid input data.");

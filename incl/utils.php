@@ -21,6 +21,11 @@ Output: "&lt;b&gt;Bold&lt;/b&gt; &amp; &lt;script&gt;alert('XSS');&lt;/script&gt
 
 */
 
+function refreshToken()
+{
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 /**
  * Sanitize a given input string by trimming whitespace, stripping HTML tags,
  * and converting special characters to HTML entities.

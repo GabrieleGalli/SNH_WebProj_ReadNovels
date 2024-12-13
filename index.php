@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['r'])) {
     $r = sanitize_input(base64_decode($_GET['r']));
     if ($r == '0') {
         echo '<div class="alert alert-success">Registration successful! You can now login.</div>';
-
     } else if ($r == '1') {
         echo '<div class="alert alert-danger">Something went wrong!</div>';
     } else if ($r == '2') {
@@ -55,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         logEvent('Login', 'Insuccess - invalid token', '');
         die('Invalid CSRF token');
     }
-    //rigenera token
+    refreshToken();
 
     //** Check Timestamp */
     if (!isset($_POST['timestamp']) || !isTimestampValid($_POST['timestamp'])) {
@@ -65,10 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //** Check Login Attempts - Account Locking */
     $ip_addr = getIPAddress();
-    if (!checkAttempts($pdo, $ip_addr)) {
-        logEvent('Login', 'Insuccess - too many tries', '');
-        die('Too many tries. Retry later.');
-    }
+    /*if (!checkAttempts($pdo, $ip_addr)) {
+        logEvent('Login', 'Insuccess - too many tries', $ip_addr);
+        die('Too many registration attempts. Retry later.');
+    }*/
 
     //** Check Captcha */
     /*

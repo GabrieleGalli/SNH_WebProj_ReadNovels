@@ -83,8 +83,13 @@ usort($all_novels, function ($a, $b) {
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-                    <a class="nav-link" href="insert_shnovel.php">Insert a new short novel</a>
-                    <a class="nav-link" href="insert_lgnovel.php">Insert a new long novel</a>
+                    <?php if ($_SESSION['usr'] == 'admin') { ?>
+                        <a class="nav-link" href="controlpanel.php">Admin Control Panel</a>
+                    <?php } ?>
+                    <?php if ($_SESSION['usr'] !== 'admin') { ?>
+                        <a class="nav-link" href="insert_shnovel.php">Insert a new short novel</a>
+                        <a class="nav-link" href="insert_lgnovel.php">Insert a new long novel</a>
+                    <?php } ?>
                     <a class="nav-link" href="incl/logout.php">Logout</a>
                 </div>
             </div>
@@ -113,7 +118,7 @@ usort($all_novels, function ($a, $b) {
         $USR_NAME = sanitize_input($row['user_name']);
         $USR_SURNAME = sanitize_input($row['user_surname']);
 
-        if ($premium == 0 && $NOVEL_PREMIUM == 0 || $premium == 1) {
+        if ($premium == 0 && $NOVEL_PREMIUM == 0 || $premium == 1 || $_SESSION['usr'] == 'admin') {
             echo
                 '<div class="card m-4">
                     <div class="card-header">';
@@ -129,15 +134,15 @@ usort($all_novels, function ($a, $b) {
                     '<p class="card-text">' . $NOVEL_CONTENT . '</p>';
             } elseif ($type == 'long') {
                 echo
-                    '<p class="card-text">Scarica il PDF della novel:</p>
-                        <a href="incl/download_pdf.php?file=' . urlencode($NOVEL_FILENAME) . '" class="btn btn-outline-dark" download>Scarica PDF</a>';
+                    '<p class="card-text">Download novel PDF:</p>
+                        <a href="incl/download_pdf.php?file=' . urlencode($NOVEL_FILENAME) . '" class="btn btn-outline-dark" download>Download PDF</a>';
             }
             echo
                 '</div>
                     <div class="card-footer">';
 
             // Show deleting button only if the user is the owner of the novel
-            if ($_SESSION['id'] == $USR_ID) {
+            if ($_SESSION['id'] == $USR_ID || $_SESSION['usr'] == 'admin') {
                 echo '
                 <form method="post" action="delete_novel.php" class="mt-3" onsubmit="return confirmDeletion();">
                     <input type="hidden" name="novel_type" value="' . htmlspecialchars($type) . '">

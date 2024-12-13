@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         logEvent('Register', 'Insuccess - invalid token', '');
         die('Invalid CSRF token');
     }
+    refreshToken();
 
     //** Check Timestamp */
     if (!isset($_POST['timestamp']) || !isTimestampValid($_POST['timestamp'])) {
@@ -25,12 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die('Request expired. Retry later.');
     }
 
-    //** Login Attempt Checker - Account Locking */
+    //** Check Login Attempts - Account Locking */
     $ip_addr = getIPAddress();
-    if (!checkAttempts($pdo, $ip_addr)) {
-        logEvent('Register', 'Insuccess - too many tries', '');
-        die('Troppi tentativi di registrazione. Riprova più tardi.');
-    }
+    /*if (!checkAttempts($pdo, $ip_addr)) {
+        logEvent('Register', 'Insuccess - too many tries', $ip_addr);
+        die('Too many registration attempts. Retry later.');
+    }*/
 
     //** Check Captcha */
     /*
@@ -70,14 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (
             !$username || !$name || !$surname || !$password1 || !$password2 ||
-            !filter_var($email, FILTER_VALIDATE_EMAIL) ||
-            !filter_var($premium, FILTER_VALIDATE_INT)
+            !filter_var($email, FILTER_VALIDATE_EMAIL)
         ) {
             logEvent('Register', 'Insuccess - invalid input data', $_POST["username"]);
             die('Invalid input data.');
         }
 
-        if ($password1 !== $password2 || strlen($password1) < 8) {
+        if ($password1 !== $password2) {
             echo '<div class="alert alert-danger">Passwords don\'t match!</div>';
             logEvent('Login', 'Insuccess - incorrect password matching', $_POST['username']);
             logAttempt($pdo, $ip_addr); // Registra tentativo fallito

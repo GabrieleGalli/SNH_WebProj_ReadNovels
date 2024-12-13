@@ -19,14 +19,13 @@ if (isset($_SESSION['usr'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo $_POST['timestamp'];
-    echo $_POST['csrf_token'];
 
     //** Check CSRF Token */
     if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
         logEvent('Request PSW Reset', 'Insuccess - invalid token', '');
         die('Invalid CSRF token');
     }
+    refreshToken();
 
     //** Check Timestamp */
     if (!isset($_POST['timestamp']) || !isTimestampValid($_POST['timestamp'])) {
@@ -60,13 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $mail->isSMTP();
                     $mail->SMTPAuth = true;                                                                     // Autenticazione SMTP
                     $mail->Host = 'smtp.sendgrid.net';                                                          // Server SMTP (modifica se usi un altro provider)
-                    $mail->Username = 'apikey';                                                                 // Email del mittente
-                    $mail->Password = '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';  // Password o App Password
+                    $mail->Username = $ENV['username'];                                                                 // Email del mittente
+                    $mail->Password = $ENV['password'];       // Password o App Password
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                                         // Crittografia TLS
                     $mail->Port = 587;                                                                          // Porta SMTP (usa 465 per SSL)
                     $mail->SMTPDebug = 3;                                                                       // Livello precisione debug
                     //$mail->Debugoutput = 'html';                                                              // [DEBUG] Output leggibile nel browser
-                    $mail->setFrom('gab222@outlook.it', 'Read Novels');                          // Mittente
+                    $mail->setFrom($ENV['from'], 'Read Novels');                          // Mittente
                     $mail->addAddress($email, $user['NAME'] . ' ' . $user['SURNAME']);           // Destinatario
                     $mail->isHTML(true);                                                                // Abilita HTML
                     $mail->Subject = 'Password Reset Request - Read Novels';                                    // Oggetto
