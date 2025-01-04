@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p id="message"></p>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <input type="hidden" name="rst_token" value="<?= $TOKEN_RST ?>">
-                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                    <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'],ENT_QUOTES, 'UTF-8') ?>">
                     <input type="hidden" name="timestamp" value="<?= time() ?>">
                     <button type="submit" class="btn btn-outline-dark" name="submitBTN">UPDATE PASSWORD</button><br>
                 </div>

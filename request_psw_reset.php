@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="email" style="color:black">Email</label>
             </div><br>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'],ENT_QUOTES, 'UTF-8') ?>">
                 <input type="hidden" name="timestamp" value="<?= time() ?>">
                 <button type="submit" class="btn btn-outline-dark" name="submitBTN">SEND RESET LINK</button><br>
             </div>
