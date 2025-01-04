@@ -47,7 +47,7 @@ This project is a web-based application for managing and sharing novels. It allo
  ├── register.php 
  ├── request_psw_reset.php 
  └── uploads/ 
- └── long_novels/
+    └── long_novels/
 ```
 
 ## Installation
