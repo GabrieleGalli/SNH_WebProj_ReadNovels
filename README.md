@@ -13,6 +13,7 @@ This project is a web-based application for managing and sharing novels. It allo
 - Secure password handling
 
 ## Project Structure
+```
  ├── .gitignore 
  ├── controlpanel.php 
  ├── dashboard.php 
@@ -47,7 +48,7 @@ This project is a web-based application for managing and sharing novels. It allo
  ├── request_psw_reset.php 
  └── uploads/ 
  └── long_novels/
-
+```
 
 ## Installation
 
