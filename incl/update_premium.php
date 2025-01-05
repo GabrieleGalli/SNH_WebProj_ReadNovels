@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         logEvent('Update Premium', 'Insuccess - invalid token', $_SESSION['usr']);
         die('Invalid CSRF token');
     }
-    refreshToken();
 
     if (isset($data['premium'])) {
         $premiumStatus = $data['premium'] ? 1 : 0;

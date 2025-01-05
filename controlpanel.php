@@ -90,8 +90,8 @@ $USERS = $User->getAllUsers();
 
     document.querySelectorAll('.switch-premium').forEach(switchElement => {
         switchElement.addEventListener('change', function () {
-            const isChecked = this.checked; const usrname = this.getAttribute('usr');
-
+            const isChecked = this.checked; 
+            const usrname = this.getAttribute('usr');
             // Ajax request to update premium status 
             fetch('incl/update_premium.php', {
                 method: 'POST',
@@ -104,6 +104,7 @@ $USERS = $User->getAllUsers();
                     premium: isChecked ? 1 : 0,
                     csrf_token: csrfToken,
                 }),
+
             }).then(response => response.json()).then(data => {
                 if (data.success) {
                     alert('Premium status updated successfully');
