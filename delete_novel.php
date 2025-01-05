@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $novel = $Crud->getLongNovel($novel_id);
     }
 
-    if (!$novel || $novel['ID_U'] !== $_SESSION['id']) {
+    if (!$novel || ($novel['ID_U'] !== $_SESSION['id'] && $_SESSION['usr'] !== 'admin')) {
         logEvent('Delete novel', 'Insuccess - permission denied', $user['USERNAME']);
         die('Permission denied or novel non-existent.');
     }

@@ -44,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['r'])) {
         echo '<div class="alert alert-danger">Error updating password!</div>';
     } else if ($r == '4') {
         echo '<div class="alert alert-danger">Password updated successfully!</div>';
+    } else if ($r == '5') {
+        echo '<div class="alert alert-danger">This email doesn\'t exist!</div>';
     }
 }
 
@@ -177,7 +179,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="g-recaptcha" data-sitekey=<?= getSiteKeyCaptcha() ?>></div>
             </div><br>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'],ENT_QUOTES, 'UTF-8') ?>">
+                <input type="hidden" name="csrf_token"
+                    value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
                 <input type="hidden" name="timestamp" value="<?= time() ?>">
                 <button type="submit" class="btn btn-outline-dark" name="submitBTN">ENTER</button><br>
             </div>

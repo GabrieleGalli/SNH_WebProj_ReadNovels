@@ -59,38 +59,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $mail->isSMTP();
                     $mail->SMTPAuth = true;                                                                     // Autenticazione SMTP
                     $mail->Host = 'smtp.sendgrid.net';                                                          // Server SMTP (modifica se usi un altro provider)
-                    $mail->Username = $ENV['username'];                                                                 // Email del mittente
-                    $mail->Password = $ENV['password'];       // Password o App Password
+                    $mail->Username = $ENV['username'];                                                         // Email del mittente
+                    $mail->Password = $ENV['password'];                                                         // Password o App Password
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                                         // Crittografia TLS
                     $mail->Port = 587;                                                                          // Porta SMTP (usa 465 per SSL)
                     $mail->SMTPDebug = 3;                                                                       // Livello precisione debug
                     //$mail->Debugoutput = 'html';                                                              // [DEBUG] Output leggibile nel browser
-                    $mail->setFrom($ENV['from'], 'Read Novels');                          // Mittente
+                    $mail->setFrom($ENV['from'], 'Read Novels');                                 // Mittente
                     $mail->addAddress($email, $user['NAME'] . ' ' . $user['SURNAME']);           // Destinatario
                     $mail->isHTML(true);                                                                // Abilita HTML
                     $mail->Subject = 'Password Reset Request - Read Novels';                                    // Oggetto
                     $mail->Body =                                                                               // Corpo HTML
                         '<h1>Click the link below to reset your password:</h1><br>
                         <a href="' . $resetLink . '">Reset password</a><br>';
-                        $mail->SMTPOptions = array(
-                            'ssl' => array(
-                                'verify_peer' => false,
-                                'verify_peer_name' => false,
-                                'allow_self_signed' => true,
-                                'cafile' => 'cert/cert.pem'
-                            )
-                        );
+                    $mail->SMTPOptions = array(
+                        'ssl' => array(
+                            'verify_peer' => false,
+                            'verify_peer_name' => false,
+                            'allow_self_signed' => true,
+                            'cafile' => 'cert/cert.pem'
+                        )
+                    );
                     $mail->send();                                                                              // Invio email
                     redirect(2);
                 } catch (Exception $e) {
-                    die("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
                     redirect(1);
                 }
             } else {
-                redirect(2);
+                redirect(1);
             }
         } else {
-            redirect(2);
+            redirect(5);
         }
     } catch (Exception $e) {
 
@@ -128,7 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="email" style="color:black">Email</label>
             </div><br>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'],ENT_QUOTES, 'UTF-8') ?>">
+                <input type="hidden" name="csrf_token"
+                    value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
                 <input type="hidden" name="timestamp" value="<?= time() ?>">
                 <button type="submit" class="btn btn-outline-dark" name="submitBTN">SEND RESET LINK</button><br>
             </div>

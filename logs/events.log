@@ -133,3 +133,26 @@
 [2024-12-13 11:00:58] [::1] [gabri] [Login] Insuccess - incorrect credentials
 [2024-12-13 11:01:05] [::1] [gabri] [Login] Success
 [2024-12-13 11:01:08] [::1] [gabri] [Logout] 
+[2025-01-05 11:42:42] [::1] [gabri] [PSW Reset] Success
+[2025-01-05 11:42:48] [::1] [gabri] [Login] Success
+[2025-01-05 11:42:50] [::1] [gabri] [Logout] 
+[2025-01-05 11:43:12] [::1] [gabri] [Login] Success
+[2025-01-05 11:43:49] [::1] [gabri] [Logout] 
+[2025-01-05 11:44:22] [::1] [simo] [Register] Success
+[2025-01-05 11:44:34] [::1] [simo] [Login] Success
+[2025-01-05 11:45:01] [::1] [simo] [Logout] 
+[2025-01-05 11:45:08] [::1] [admin] [Login] Insuccess - incorrect credentials
+[2025-01-05 11:45:25] [::1] [admin] [Login] Insuccess - incorrect credentials
+[2025-01-05 11:46:23] [::1] [admin] [Register] Success
+[2025-01-05 11:46:31] [::1] [admin] [Login] Success
+[2025-01-05 11:46:43] [::1] [admin] [Delete novel] Insuccess - permission denied
+[2025-01-05 11:49:25] [::1] [admin] [Logout] 
+[2025-01-05 11:49:36] [::1] [gabri] [Login] Success
+[2025-01-05 11:50:39] [::1] [gabri] [Logout] 
+[2025-01-05 11:50:50] [::1] [simo] [Login] Success
+[2025-01-05 11:51:20] [::1] [simo] [Logout] 
+[2025-01-05 11:51:29] [::1] [admin] [Login] Success
+[2025-01-05 11:51:38] [::1] [admin] [Update Premium Reset] Success
+[2025-01-05 11:51:39] [::1] [admin] [Update Premium Reset] Success
+[2025-01-05 11:51:47] [::1] [admin] [Update Premium Reset] Success
+[2025-01-05 11:51:49] [::1] [admin] [Update Premium Reset] Success
