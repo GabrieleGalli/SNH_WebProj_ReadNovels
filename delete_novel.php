@@ -5,7 +5,7 @@ require_once 'incl/auth_check.php';
 require_once 'incl/utils.php';
 require_once 'incl/security_headers.php';
 
-const DOWNLOAD_DIR = '../uploads/long_novels/';
+const DOWNLOAD_DIR = './uploads/long_novels/';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
