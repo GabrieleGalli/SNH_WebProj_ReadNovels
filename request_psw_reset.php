@@ -72,10 +72,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $mail->Body =                                                                               // Corpo HTML
                         '<h1>Click the link below to reset your password:</h1><br>
                         <a href="' . $resetLink . '">Reset password</a><br>';
-
+                        $mail->SMTPOptions = array(
+                            'ssl' => array(
+                                'verify_peer' => false,
+                                'verify_peer_name' => false,
+                                'allow_self_signed' => true,
+                                'cafile' => 'cert/cert.pem'
+                            )
+                        );
                     $mail->send();                                                                              // Invio email
                     redirect(2);
                 } catch (Exception $e) {
+                    die("Message could not be sent. Mailer Error: {$mail->ErrorInfo}");
                     redirect(1);
                 }
             } else {
@@ -85,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             redirect(2);
         }
     } catch (Exception $e) {
+
         http_response_code(403); // Forbidden Error 
         die('Some error occured. Denied access.');
     }
