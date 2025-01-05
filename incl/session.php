@@ -14,7 +14,6 @@
  */
 
 require_once __DIR__ . '/../incl/https_check.php';
-require_once __DIR__ . '/../incl/security_headers.php';
 
 ini_set('session.gc_maxlifetime', 3600); // 1 ora
 ini_set('session.cookie_secure', '1'); // Cookie della sessione solo su HTTPS

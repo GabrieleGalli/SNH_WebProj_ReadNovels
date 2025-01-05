@@ -71,6 +71,7 @@ usort($all_novels, function ($a, $b) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once 'incl/bootstrap.php'; ?>
+
     <title><?= $title ?></title>
 </head>
 
@@ -121,7 +122,7 @@ usort($all_novels, function ($a, $b) {
             $NOVEL_DATE = sanitize_input($row['lgnovel_date']);
             $NOVEL_TITLE = sanitize_input($row['lgnovel_title']);
             $NOVEL_FILENAME = sanitize_input($row['lgnovel_filename']);
-            
+
         }
 
         $USR_ID = sanitize_input($row['user_id']);
@@ -154,7 +155,7 @@ usort($all_novels, function ($a, $b) {
             // Show deleting button only if the user is the owner of the novel
             if ($_SESSION['id'] == $USR_ID || $_SESSION['usr'] == 'admin') {
                 echo '
-                <form method="post" action="delete_novel.php" class="mt-3" onsubmit="return confirmDeletion();">
+                <form method="post" action="delete_novel.php" class="mt-3 deletion-form" onsubmit="return confirmDeletion();">
                     <input type="hidden" name="novel_type" value="' . htmlspecialchars($type) . '">
                     <input type="hidden" name="novel_id" value="' . $NOVEL_ID . '">
                     <input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">
@@ -175,7 +176,7 @@ usort($all_novels, function ($a, $b) {
 
 <script>
     function confirmDeletion() {
-        return confirm("Are you sure? This in not reversible.");
+        return confirm("Are you sure? This is not reversible.");
     }
 </script>
 

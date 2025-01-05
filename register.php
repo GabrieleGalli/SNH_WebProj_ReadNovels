@@ -28,10 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //** Check Login Attempts - Account Locking */
     $ip_addr = getIPAddress();
-    /*if (!checkAttempts($pdo, $ip_addr)) {
+    if (!checkAttempts($pdo, $ip_addr)) {
         logEvent('Register', 'Insuccess - too many tries', $ip_addr);
         die('Too many registration attempts. Retry later.');
-    }*/
+    }
 
     //** Check Captcha */
     /*
@@ -42,8 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$responseData->success) {
         logEvent('Register', 'Insuccess - captcha failed', '');
         die('CAPTCHA verification failed. Try again.');
-    }
-    */
+    }*/
 
     try {
         //** Check credentials - Fail-Open Flaws */ 
@@ -167,7 +166,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div><br>
             <div class="d-grid gap-2 col-6 mx-auto">
                 <input type="hidden" name="timestamp" value="<?= time() ?>">
-                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'],ENT_QUOTES, 'UTF-8') ?>">
+                <input type="hidden" name="csrf_token"
+                    value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
                 <button type="submit" class="btn btn-outline-dark" name="submitBTN">REGISTER</button><br>
             </div>
         </form>

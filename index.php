@@ -2,6 +2,7 @@
 
 require_once 'db/conn.php';
 require_once 'incl/session.php';
+require_once 'incl/security_headers.php';
 require_once 'incl/utils.php';
 
 $title = "Read Novels Login";
@@ -66,10 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //** Check Login Attempts - Account Locking */
     $ip_addr = getIPAddress();
-    /*if (!checkAttempts($pdo, $ip_addr)) {
+    if (!checkAttempts($pdo, $ip_addr)) {
         logEvent('Login', 'Insuccess - too many tries', $ip_addr);
         die('Too many registration attempts. Retry later.');
-    }*/
+    }
 
     //** Check Captcha */
     /*
@@ -80,8 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$responseData->success) {
         logEvent('Register', 'Insuccess - captcha failed', '');
         die('CAPTCHA verification failed. Try again.');
-    }
-    */
+    }*/
 
     try {
         //** Check credentials - Fail-Open Flaws */ 
