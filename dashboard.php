@@ -14,6 +14,15 @@ if ($USER['PREMIUM'] == 0) {
     $title = "Dashboard - Premium";
 }
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['r'])) {
+    $r = sanitize_input(base64_decode($_GET['r']));
+    if ($r == '0') {
+        echo '<div class="alert alert-success">Novel deleted successfully.</div>';
+    }
+}
+
+
 $short_novels = $Crud->getShortNovels();
 $long_novels = $Crud->getLongNovels();
 
@@ -112,6 +121,7 @@ usort($all_novels, function ($a, $b) {
             $NOVEL_DATE = sanitize_input($row['lgnovel_date']);
             $NOVEL_TITLE = sanitize_input($row['lgnovel_title']);
             $NOVEL_FILENAME = sanitize_input($row['lgnovel_filename']);
+            
         }
 
         $USR_ID = sanitize_input($row['user_id']);

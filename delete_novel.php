@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if ($novel_type === 'long') {
-        $filename = $novel['FILENAME'];
+        $filename = basename($novel['FILENAME']);
         $filepath = DOWNLOAD_DIR . $filename;
         if (file_exists($filepath)) {
             if (!unlink($filepath)) {
@@ -64,8 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die('File not found.');
         }
     }
-
-    header('Location: dashboard.php');
+    header('Location: dashboard.php?r=' . base64_encode('0'));
     exit;
 
 } else {
