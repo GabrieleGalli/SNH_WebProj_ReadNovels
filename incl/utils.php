@@ -4,18 +4,18 @@ require_once 'session.php';
 
 /*
 
-- trim(): Rimuove gli spazi bianchi (e altri caratteri come newline) all'inizio e alla fine del dato.
-Esempio:
+- trim(): Removes whitespace (and other characters like newline) from the beginning and end of the data.
+Example:
 Input: " My Novel Title "
 Output: "My Novel Title"
 
-- strip_tags(): Rimuove eventuali tag HTML o PHP dal testo.
-Esempio:
+- strip_tags(): Removes any HTML or PHP tags from the text.
+Example:
 Input: "<script>alert('hacked');</script>My Novel"
 Output: "My Novel"
 
-- htmlspecialchars(): Converte i caratteri speciali in entità HTML, prevenendo attacchi XSS (Cross-Site Scripting).
-Esempio:
+- htmlspecialchars(): Converts special characters to HTML entities, preventing XSS (Cross-Site Scripting) attacks.
+Example:
 Input: "<b>Bold</b> & <script>alert('XSS');</script>"
 Output: "&lt;b&gt;Bold&lt;/b&gt; &amp; &lt;script&gt;alert('XSS');&lt;/script&gt;"
 
@@ -59,25 +59,25 @@ function getIPAddress()
 
 function checkAttempts($pdo, $ip_address, $limit = 5, $time_frame = 3600)
 {
-    // $time_frame = tempo per cui l'account è bloccato
-    // $time_threshold = tempo rimanente per sbloccare l'account
+    // $time_frame = time period for which the account is blocked
+    // $time_threshold = remaining time to unlock the account
 
-    $time_threshold = time() - $time_frame; // Calcola il limite temporale in PHP
+    $time_threshold = time() - $time_frame;
 
     $Q = "SELECT COUNT(*) AS N_ATTEMPTS, MAX(TIME) AS last_attempt 
          FROM log_attempts 
          WHERE IP_ADDR = :ip_addr AND TIME > :time_threshold";
     $stmt = $pdo->prepare($Q);
-    $stmt->bindParam(":ip_addr", $ip_address, PDO::PARAM_STR); // IP come stringa
+    $stmt->bindParam(":ip_addr", $ip_address, PDO::PARAM_STR); // IP as string
     $stmt->bindParam(":time_threshold", $time_threshold, PDO::PARAM_INT);
     $stmt->execute();
 
     $result = $stmt->fetch();
 
     if ($result && $result['N_ATTEMPTS'] >= $limit) {
-        return false; // Troppi tentativi
+        return false; // Too many attempts
     }
-    return true; // Consentito
+    return true;
 }
 
 function logAttempt($pdo, $ip_address)
@@ -157,7 +157,7 @@ function getSiteKeyCaptcha()
  */
 function logEvent($event_type, $details, $usr)
 {
-    // Eventi: Login, Logout, registrazione, modifica psw, modifiche premium (admin), errori, 
+    // Events: Login, Logout, registration, password change, admin changes, errors,
 
     $logfile = __DIR__ . '/../logs/events.log';
     $timestamp = date('Y-m-d H:i:s');

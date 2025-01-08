@@ -50,7 +50,7 @@ class User
             // every username is different
             $usrs_count = $this->getNumOfUsersByUsrname($usrname);
             $email_count = $this->getNumOfUsersByEmail($email);
-            //user aleready exists
+            //user already exists
             if ($usrs_count['users_count'] > 0 || $email_count['users_count'] > 0) {
                 return false;
             } else {

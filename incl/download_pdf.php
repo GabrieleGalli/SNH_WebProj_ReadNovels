@@ -7,20 +7,20 @@ require_once 'auth_check.php';
 const DOWNLOAD_DIR = '../uploads/long_novels/';
 
 if (isset($_GET['file'])) {
-
+    // Get the file name from the URL and use basename to prevent directory traversal attacks
     $filename = basename($_GET['file']);
     $filepath = DOWNLOAD_DIR . $filename;
 
     if (file_exists($filepath)) {
 
-        // Verifica il tipo MIME del file
+        // Check the file type
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mime = finfo_file($finfo, $filepath);
         finfo_close($finfo);
 
-        // Controlla che il tipo MIME sia 'application/pdf'
+        // Check that MIME type is 'application/pdf'
         if ($mime === 'application/pdf') {
-            // Imposta gli header per il download
+            // Set the headers for the file download
             header('Content-Description: File Transfer');
             header('Content-Type: $mime');
             header('Content-Disposition: attachment; filename="' . basename($filepath) . '"');
@@ -29,7 +29,7 @@ if (isset($_GET['file'])) {
             header('Pragma: public');
             header('Content-Length: ' . filesize($filepath));
 
-            // Pulisce il buffer di output e legge il file
+            // Flushes the output buffer and sends the file to the user
             flush();
             readfile($filepath);
             exit;

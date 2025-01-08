@@ -17,7 +17,9 @@ require_once __DIR__ . '/../incl/https_check.php';
 
 ini_set('session.gc_maxlifetime', 3600); // 1 ora
 ini_set('session.cookie_secure', '1'); // Cookie della sessione solo su HTTPS
-
+session_set_cookie_params(["SameSite" => "Strict"]); //none, lax, strict
+session_set_cookie_params(["Secure" => "true"]); //false, true
+session_set_cookie_params(["HttpOnly" => "true"]); //false, true
 session_start();
 
 if (empty($_SESSION['csrf_token'])) {

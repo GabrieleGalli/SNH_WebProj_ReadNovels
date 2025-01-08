@@ -12,14 +12,14 @@ class Crud
             throw new Exception("Database connection is invalid.");
         }
         $this->db = $conn;
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Imposta PDO in modalità eccezione.
-        $this->db->setAttribute(PDO::ATTR_TIMEOUT, 2); // Timeout di 2 secondi per la query
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Setup PDO error exceptions mode
+        $this->db->setAttribute(PDO::ATTR_TIMEOUT, 2); // Setup PDO timeout to 2 seconds
     }
 
     public function createShortNovel($id_u, $premium, $title, $content)
     {
         try {
-            // Sanitizzazione e validazione input
+            // Sanitization and input validation
             $id_u = sanitize_input($id_u);
             $premium = sanitize_input($premium);
             $title = sanitize_input($title);
@@ -54,7 +54,7 @@ class Crud
     public function createLongNovel($id_u, $premium, $title, $fileName)
     {
         try {
-            // Sanitizzazione e validazione input
+            // Sanitization and input validation
             $id_u = sanitize_input($id_u);
             $premium = sanitize_input($premium);
             $title = sanitize_input($title);

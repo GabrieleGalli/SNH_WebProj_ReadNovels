@@ -3,7 +3,7 @@ function checkPasswords() {
   const password2 = document.getElementById("password2").value;
   const message = document.getElementById("message");
 
-  // Requisiti di sicurezza per la password
+  // Password must contain at least 8 characters, 1 upper-case letter, 1 lower-case letter, 1 number, 1 special character.
   const strongPassword =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 

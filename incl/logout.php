@@ -8,12 +8,12 @@ logEvent('Logout', '', $_SESSION['usr']);
 session_unset();
 session_destroy();
 
-// Elimina il cookie "remember_me" se esiste
+// Delete the remember me cookie if it exists
 if (isset($_COOKIE['REMEMBER_ME'])) {
     setcookie('REMEMBER_ME', '', [
         'expires' => time() - 3600,
         'path' => '/',
-        'secure' => true, // Richiede HTTPS
+        'secure' => true, // Requires HTTPS
         'httponly' => true,
         'samesite' => 'Strict'
     ]);

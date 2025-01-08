@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     //** Check Captcha */
-    /*
     $captcha = $_POST['g-recaptcha-response'];
     $secretKey = getSecKeyCaptcha();
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$responseData->success) {
         logEvent('Register', 'Insuccess - captcha failed', '');
         die('CAPTCHA verification failed. Try again.');
-    }*/
+    }
 
     try {
         //** Check credentials - Fail-Open Flaws */ 
@@ -79,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($password1 !== $password2) {
             echo '<div class="alert alert-danger">Passwords don\'t match!</div>';
             logEvent('Login', 'Insuccess - incorrect password matching', $_POST['username']);
-            logAttempt($pdo, $ip_addr); // Registra tentativo fallito
+            logAttempt($pdo, $ip_addr); // register attempt failed
             exit;
         }
 
@@ -87,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (!$result) {
             echo '<div class="alert alert-danger">Username or Email already in use.</div>';
-            logAttempt($pdo, $ip_addr); // Registra tentativo fallito
+            logAttempt($pdo, $ip_addr); // Register attempt failed
             logEvent('Register', 'Insuccess - username or email already in use', $_POST['username']);
         } else {
             logEvent('Register', 'Success', $_POST['username']);

@@ -22,7 +22,7 @@ if (isset($_SESSION['usr'])) {
     $token = $_COOKIE['REMEMBER_ME'];
     $isTokenValid = $Token->verifyValidityTknRememberMe($token);
 
-    if ($isTokenValid && password_verify($token, $isTokenValid['TOKEN'])) {
+    if ($isTokenValid && $token===$isTokenValid['TOKEN']) {
         // Token is valid, log in the user
         $user = $User->getUserById($isTokenValid['ID_U']);
         $_SESSION['usr'] = $user['USERNAME'];
@@ -69,19 +69,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ip_addr = getIPAddress();
     if (!checkAttempts($pdo, $ip_addr)) {
         logEvent('Login', 'Insuccess - too many tries', $ip_addr);
-        die('Too many registration attempts. Retry later.');
+        die('Too many login attempts. Retry later.');
     }
 
     //** Check Captcha */
-    /*
     $captcha = $_POST['g-recaptcha-response'];
     $secretKey = getSecKeyCaptcha();
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
     $responseData = json_decode($response);
     if (!$responseData->success) {
-        logEvent('Register', 'Insuccess - captcha failed', '');
+        logEvent('Login', 'Insuccess - captcha failed', '');
         die('CAPTCHA verification failed. Try again.');
-    }*/
+    }
 
     try {
         //** Check credentials - Fail-Open Flaws */ 
@@ -122,9 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 setcookie('REMEMBER_ME', $token, [
                     'expires' => $expires,
                     'path' => '/',
-                    'secure' => true, // Richiede HTTPS
-                    'httponly' => true,
-                    'samesite' => 'Strict'
+                    'secure' => true, // Requires HTTPS
+                    'httponly' => true, // Prevent access from JavaScript
+                    'samesite' => 'Strict' // Prevent CSRF
                 ]);
             }
         }

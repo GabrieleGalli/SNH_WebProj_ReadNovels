@@ -46,30 +46,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $User->getUserByEmail($email);
 
         if ($user) {
-            $token = bin2hex(random_bytes(32)); // Genera un token sicuro
-            $expires = time() + 3600; // 1 ora di validità
+            $token = bin2hex(random_bytes(32)); // Generate secure token
+            $expires = time() + 3600; // 1 hour from now
 
             if ($Token->insertTokenPswRst($user['ID'], $token, $expires)) {
 
-                // Genera il link di reset
+                // Generate reset link
                 $resetLink = "https://localhost/SNH_WebProj_Novels/psw_reset.php?token=" . urlencode($token);
 
                 try {
-                    // Configurazione server SMTP
+                    // SMTP configuration
                     $mail->isSMTP();
-                    $mail->SMTPAuth = true;                                                                     // Autenticazione SMTP
-                    $mail->Host = 'smtp.sendgrid.net';                                                          // Server SMTP (modifica se usi un altro provider)
-                    $mail->Username = $ENV['username'];                                                         // Email del mittente
-                    $mail->Password = $ENV['password'];                                                         // Password o App Password
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                                         // Crittografia TLS
-                    $mail->Port = 587;                                                                          // Porta SMTP (usa 465 per SSL)
-                    $mail->SMTPDebug = 3;                                                                       // Livello precisione debug
-                    //$mail->Debugoutput = 'html';                                                              // [DEBUG] Output leggibile nel browser
-                    $mail->setFrom($ENV['from'], 'Read Novels');                                 // Mittente
-                    $mail->addAddress($email, $user['NAME'] . ' ' . $user['SURNAME']);           // Destinatario
-                    $mail->isHTML(true);                                                                // Abilita HTML
-                    $mail->Subject = 'Password Reset Request - Read Novels';                                    // Oggetto
-                    $mail->Body =                                                                               // Corpo HTML
+                    $mail->SMTPAuth = true;                                                                     // SMTP Authentication
+                    $mail->Host = 'smtp.sendgrid.net';                                                          // SMTP Server
+                    $mail->Username = $ENV['username'];                                                         // Sender mail
+                    $mail->Password = $ENV['password'];                                                         // Password or App Password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                                         // TLS crypthography
+                    $mail->Port = 587;                                                                          // SMTP port
+                    $mail->SMTPDebug = 3;                                                                       // Debug level
+                    //$mail->Debugoutput = 'html';                                                              // [DEBUG] Output readable from browser
+                    $mail->setFrom($ENV['from'], 'Read Novels');                                                // Sender
+                    $mail->addAddress($email, $user['NAME'] . ' ' . $user['SURNAME']);                          // Receiver
+                    $mail->isHTML(true);                                                                        // HTML format
+                    $mail->Subject = 'Password Reset Request - Read Novels';                                    // Subject
+                    $mail->Body =                                                                               // HTML body
                         '<h1>Click the link below to reset your password:</h1><br>
                         <a href="' . $resetLink . '">Reset password</a><br>';
                     $mail->SMTPOptions = array(
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             'cafile' => 'cert/cert.pem'
                         )
                     );
-                    $mail->send();                                                                              // Invio email
+                    $mail->send();                                                                              // email sent
                     redirect(2);
                 } catch (Exception $e) {
                     redirect(1);

@@ -14,8 +14,8 @@ class Token
             throw new Exception("Database connection is invalid.");
         }
         $this->db = $conn;
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Imposta PDO in modalità eccezione.
-        $this->db->setAttribute(PDO::ATTR_TIMEOUT, 2); // Timeout di 2 secondi per la query
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Setup PDO error exceptions mode
+        $this->db->setAttribute(PDO::ATTR_TIMEOUT, 2); // Setup PDO timeout to 2 seconds
     }
 
     /**
@@ -30,7 +30,7 @@ class Token
     public function insertTokenPswRst($idu, $token, $exp)
     {
         try {
-            // Sanitizzazione e validazione input
+            // Sanitization and input validation
             $idu = sanitize_input($idu);
             $token = sanitize_input($token);
             $exp = sanitize_input($exp);
@@ -69,7 +69,7 @@ class Token
     public function insertTokenRememberMe($idu, $token, $exp)
     {
         try {
-            // Sanitizzazione e validazione input
+            // Sanitization and input validation
             $idu = sanitize_input($idu);
             $token = sanitize_input($token);
             $exp = sanitize_input($exp);
@@ -111,7 +111,7 @@ class Token
     public function verifyValidityTknPswReset($token)
     {
         try {
-            // Sanitizzazione e validazione input
+            // Sanitization and input validation
             $token = sanitize_input($token);
             if (!$token) {
                 throw new Exception("Invalid input data.");
@@ -145,7 +145,7 @@ class Token
     public function verifyValidityTknRememberMe($token)
     {
         try {
-            // Sanitizzazione e validazione input
+            // Sanitization and input validation
             $token = sanitize_input($token);
 
             if (!$token) {
@@ -180,7 +180,7 @@ class Token
     public function deleteTokenPswRst($token)
     {
         try {
-            // Sanitizzazione e validazione input
+            // Sanitization and input validation
             $token = sanitize_input($token);
 
             if (!$token) {

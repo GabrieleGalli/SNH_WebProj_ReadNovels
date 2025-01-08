@@ -7,7 +7,7 @@ require_once 'auth_check.php';
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Recupera i dati dal corpo della richiesta 
+    // Retrieve the request's body and decode it from JSON 
     $data = json_decode(file_get_contents('php://input'), true);
 
     //** Check CSRF Token */ 

@@ -12,7 +12,6 @@
  *   - frame-src: Allows frames from specified external sources.
  * - X-Content-Type-Options: Prevents MIME type sniffing.
  * - X-Frame-Options: Prevents the page from being displayed in a frame to avoid clickjacking.
- * - X-XSS-Protection: Enables XSS filtering and prevents rendering of the page if an attack is detected.
  * 
  * Include this script in files that generate HTTP responses (e.g., index.php, dashboard.php), or in API endpoints that return JSON or other data via echo.
  * 
@@ -23,6 +22,5 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-i
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
 header('Strict-Transport-Security: max-age=31536000; includeSubDomains; preload');
-//header('X-XSS-Protection: 1; mode=block');
 
 ?>

@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($novel_title == '' || $file['error'] !== UPLOAD_ERR_OK) {
         echo '<div class="alert alert-danger">Please provide a title and upload a valid PDF file.</div>';
     } else {
-        // Assicurazione che il file sia PDF
+        // Check that the file is a PDF
         $fileType = mime_content_type($file['tmp_name']);
         $allowed_extensions = ['pdf'];
         $file_extension = pathinfo($file['name'], PATHINFO_EXTENSION);
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             logEvent('Insert LG Novel', 'Insuccess - invalid file extension', '');
             echo '<div class="alert alert-danger">Only PDF files are allowed.</div>';
         } else {
-            if ($file['size'] > 5 * 1024 * 1024) { // Controllo dimensione massima del file: 5 MB
+            if ($file['size'] > 5 * 1024 * 1024) { // Check max size of file: 5 MB
                 logEvent('Insert LG Novel', 'Insuccess - exceeded the maximum file size', '');
                 echo '<div class="alert alert-danger">File is too large. Maximum allowed size is 5 MB.</div>';
             } else {
@@ -45,12 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     mkdir($targetDir, 0777, true);
                 }
 
-                // Generazione nome univoco per il file
+                // Generate unique name for the file and move it to the target directory. We use basename in order to prevent 
+                // directory traversal attacks. 
                 $fileName = uniqid() . '_' . basename($file['name']);
                 $targetFile = $targetDir . $fileName;
 
                 if (move_uploaded_file($file['tmp_name'], $targetFile)) {
-                    // Salva informazioni nel database
+                    // Save information on the db
                     $result = $Crud->createLongNovel($id_u, $premium_set, $novel_title, $fileName);
                     if ($result) {
                         echo '<div class="alert alert-success">Long novel uploaded successfully.</div>';

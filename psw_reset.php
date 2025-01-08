@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $TOKEN_RST) {
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['r'])) {
     $r = sanitize_input(base64_decode($_GET['r']));
     if ($r == '1') {
-        echo '<div class="alert alert-danger">Password cannot be the same as the previous one!</div>';
+        echo '<div class="alert alert-danger">Password already used in the past, choose another one!</div>';
     }
 }
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $TOKEN_RST = $_POST['rst_token'];
         $newPassword = password_hash($_POST['password1'], PASSWORD_BCRYPT);
-        $isTokenValid = $Token->verifyValidityTknPswReset($_POST['rst_token']); // esiste una richiesta di reset della psw
+        $isTokenValid = $Token->verifyValidityTknPswReset($_POST['rst_token']); // check if there is a valid reset password token
 
         if (!$isTokenValid) {
             logEvent('PSW Reset', 'Insuccess - invalid or expired token', '');
