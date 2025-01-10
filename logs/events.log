@@ -213,3 +213,100 @@
 [2025-01-05 15:10:02] [::1] [gabri] [Logout] 
 [2025-01-05 15:10:08] [::1] [simo] [Login] Success
 [2025-01-05 15:10:14] [::1] [simo] [Logout] 
+[2025-01-10 08:27:52] [::1] [] [Register] Insuccess - captcha failed
+[2025-01-10 08:28:06] [::1] [gabri] [Register] Insuccess - username or email already in use
+[2025-01-10 08:29:01] [::1] [gabri] [Register] Success
+[2025-01-10 08:29:33] [::1] [simo] [Register] Success
+[2025-01-10 08:29:46] [::1] [] [Login] Insuccess - captcha failed
+[2025-01-10 08:29:56] [::1] [gabri] [Login] Success
+[2025-01-10 08:30:38] [::1] [gabri] [Logout] 
+[2025-01-10 08:30:57] [::1] [admin] [Login] Success
+[2025-01-10 08:31:08] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 08:31:10] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 08:31:17] [::1] [admin] [Logout] 
+[2025-01-10 08:31:31] [::1] [simo] [Login] Success
+[2025-01-10 08:32:12] [::1] [] [Insert LG Novel] Insuccess - exceeded the maximum file size
+[2025-01-10 08:32:19] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2025-01-10 08:32:28] [::1] [simo] [Logout] 
+[2025-01-10 08:32:36] [::1] [gabri] [Login] Success
+[2025-01-10 08:33:56] [::1] [gabri] [Logout] 
+[2025-01-10 08:34:32] [::1] [gabri] [Login] Success
+[2025-01-10 08:34:51] [::1] [gabri] [Logout] 
+[2025-01-10 08:35:03] [::1] [gabri] [Login] Success
+[2025-01-10 08:35:15] [::1] [gabri] [Logout] 
+[2025-01-10 08:35:22] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 08:36:42] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2025-01-10 08:36:54] [::1] [gabri] [PSW Reset] Success
+[2025-01-10 08:37:04] [::1] [gabri] [Login] Success
+[2025-01-10 08:37:06] [::1] [gabri] [Logout] 
+[2025-01-10 08:37:15] [::1] [] [Login] Insuccess - captcha failed
+[2025-01-10 08:37:24] [::1] [admin] [Login] Success
+[2025-01-10 08:37:31] [::1] [admin] [Logout] 
+[2025-01-10 08:37:44] [::1] [simo] [Login] Success
+[2025-01-10 08:40:17] [::1] [simo] [Logout] 
+[2025-01-10 09:35:16] [::1] [] [Register] Insuccess - captcha failed
+[2025-01-10 09:35:45] [::1] [gabri] [Register] Success
+[2025-01-10 09:36:34] [::1] [simo] [Register] Success
+[2025-01-10 09:38:08] [::1] [gabri] [Login] Success
+[2025-01-10 09:40:39] [::1] [gabri] [Logout] 
+[2025-01-10 09:40:47] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 09:45:40] [::1] [gabri] [PSW Reset] Success
+[2025-01-10 09:47:53] [::1] [gabri] [Login] Success
+[2025-01-10 09:48:31] [::1] [gabri] [Logout] 
+[2025-01-10 09:48:43] [::1] [admin] [Login] Success
+[2025-01-10 09:48:55] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 09:48:58] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 09:50:27] [::1] [admin] [Logout] 
+[2025-01-10 09:50:39] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 09:50:47] [::1] [gabri] [Login] Success
+[2025-01-10 09:51:58] [::1] [gabri] [Logout] 
+[2025-01-10 09:52:23] [::1] [simo] [Login] Success
+[2025-01-10 10:00:20] [::1] [] [Insert LG Novel] Insuccess - exceeded the maximum file size
+[2025-01-10 10:00:28] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2025-01-10 10:01:37] [::1] [simo] [Logout] 
+[2025-01-10 10:02:04] [::1] [gabri] [Login] Success
+[2025-01-10 10:03:23] [::1] [gabri] [Logout] 
+[2025-01-10 10:03:50] [::1] [simo] [Login] Success
+[2025-01-10 10:04:27] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2025-01-10 10:04:44] [::1] [simo] [Logout] 
+[2025-01-10 10:04:54] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 10:05:00] [::1] [gabri] [Login] Success
+[2025-01-10 10:38:20] [::1] [gabri] [Logout] 
+[2025-01-10 10:38:31] [::1] [gabri] [Login] Success
+[2025-01-10 10:38:43] [::1] [gabri] [Logout] 
+[2025-01-10 10:38:49] [::1] [admin] [Login] Success
+[2025-01-10 10:39:38] [::1] [admin] [Logout] 
+[2025-01-10 10:39:46] [::1] [admin] [Login] Insuccess - incorrect credentials
+[2025-01-10 10:39:52] [::1] [admin] [Login] Success
+[2025-01-10 10:40:14] [::1] [admin] [Logout] 
+[2025-01-10 10:40:22] [::1] [gabri] [Login] Success
+[2025-01-10 10:45:46] [::1] [gabri] [Logout] 
+[2025-01-10 10:45:54] [::1] [simo] [Login] Success
+[2025-01-10 10:45:58] [::1] [simo] [Logout] 
+[2025-01-10 10:46:27] [::1] [gabri] [Login] Success
+[2025-01-10 10:46:47] [::1] [gabri] [Logout] 
+[2025-01-10 10:47:01] [::1] [admin] [Login] Success
+[2025-01-10 10:47:05] [::1] [admin] [Update Premium] Insuccess - not admin
+[2025-01-10 10:47:07] [::1] [admin] [Update Premium] Insuccess - not admin
+[2025-01-10 10:47:12] [::1] [admin] [Update Premium] Insuccess - not admin
+[2025-01-10 10:47:47] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 10:47:49] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 10:48:00] [::1] [admin] [Logout] 
+[2025-01-10 10:48:09] [::1] [simo] [Login] Success
+[2025-01-10 10:54:34] [::1] [simo] [Logout] 
+[2025-01-10 10:54:42] [::1] [admin] [Login] Success
+[2025-01-10 10:54:50] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 10:55:09] [::1] [admin] [Update Premium Reset] Success
+[2025-01-10 11:03:55] [::1] [admin] [Logout] 
+[2025-01-10 11:04:03] [::1] [gabri] [Login] Success
+[2025-01-10 11:04:29] [::1] [gabri] [Logout] 
+[2025-01-10 11:04:38] [::1] [simo] [Login] Success
+[2025-01-10 11:15:49] [::1] [simo] [Logout] 
+[2025-01-10 11:15:55] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 11:16:16] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 11:16:22] [::1] [gabri] [Login] Success
+[2025-01-10 11:16:24] [::1] [gabri] [Logout] 
+[2025-01-10 11:16:29] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 11:16:33] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 11:16:40] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-10 11:16:44] [::1] [::1] [Login] Insuccess - too many tries

@@ -178,6 +178,22 @@ class Crud
         }
     }
 
+    public function getLongNovelByFilename($filename)
+    {
+        try {
+            $filename = sanitize_input($filename);
+            $Q = "SELECT * FROM long_novels WHERE FILENAME = :f";
+            $stmt = $this->db->prepare($Q);
+            $stmt->bindParam(":f", $filename, PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log($e->getMessage());
+            http_response_code(500);
+            return false;
+        }
+    }
+
     public function deleteShortNovel($id)
     {
         try {

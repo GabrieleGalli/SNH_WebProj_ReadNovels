@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 redirect(1);
             }
         } else {
-            redirect(5);
+            redirect(2);
         }
     } catch (Exception $e) {
 

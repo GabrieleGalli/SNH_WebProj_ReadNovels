@@ -11,6 +11,17 @@ if (isset($_GET['file'])) {
     $filename = basename($_GET['file']);
     $filepath = DOWNLOAD_DIR . $filename;
 
+    $novel = $Crud->getLongNovelByFilename($filename);
+
+    //** Access control */
+    if ($novel['PREMIUM'] == 1) {
+        // Check if the user is premium
+        $USER = $User->getUserByUsername($_SESSION['usr']);
+        if ($USER['PREMIUM'] == 0) {
+            die("You need to be a premium user to download this file.");
+        }
+    }
+
     if (file_exists($filepath)) {
 
         // Check the file type

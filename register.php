@@ -26,13 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die('Request expired. Retry later.');
     }
 
-    //** Check Login Attempts - Account Locking */
-    $ip_addr = getIPAddress();
-    if (!checkAttempts($pdo, $ip_addr)) {
-        logEvent('Register', 'Insuccess - too many tries', $ip_addr);
-        die('Too many registration attempts. Retry later.');
-    }
-
     //** Check Captcha */
     $captcha = $_POST['g-recaptcha-response'];
     $secretKey = getSecKeyCaptcha();
@@ -75,10 +68,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die('Invalid input data.');
         }
 
+        //** Check Login Attempts - Account Locking (IP + Username) */
+        $ip_addr = getIPAddress();
+        if (!checkAttempts($pdo, $username, $ip_addr)) {
+            logEvent('Register', 'Insuccess - too many tries', $ip_addr);
+            die('Too many registration attempts. Retry later.');
+        }
+
         if ($password1 !== $password2) {
             echo '<div class="alert alert-danger">Passwords don\'t match!</div>';
             logEvent('Login', 'Insuccess - incorrect password matching', $_POST['username']);
-            logAttempt($pdo, $ip_addr); // register attempt failed
+            logAttempt($pdo, $username, $ip_addr); // register attempt failed
             exit;
         }
 
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (!$result) {
             echo '<div class="alert alert-danger">Username or Email already in use.</div>';
-            logAttempt($pdo, $ip_addr); // Register attempt failed
+            logAttempt($pdo, $username, $ip_addr); // Register attempt failed
             logEvent('Register', 'Insuccess - username or email already in use', $_POST['username']);
         } else {
             logEvent('Register', 'Success', $_POST['username']);

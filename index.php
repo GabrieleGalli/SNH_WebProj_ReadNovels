@@ -8,12 +8,13 @@ require_once 'incl/utils.php';
 $title = "Read Novels Login";
 
 //** SOLO PER TEST - reset dei tentativi registrazione e login impostare cron job altrimenti */
-/* $now = time();
+/*$now = time();
 $Q = "DELETE FROM log_attempts WHERE TIME < :now";
 $stmt = $pdo->prepare($Q);
 $stmt->bindParam(":now", $now, PDO::PARAM_INT);
 $stmt->execute(); */
 
+//** Access control */
 if (isset($_SESSION['usr'])) {
     $redirectPage = ($_SESSION['usr'] == 'admin') ? 'controlpanel.php' : 'dashboard.php';
     header("Location: $redirectPage");
@@ -22,7 +23,7 @@ if (isset($_SESSION['usr'])) {
     $token = $_COOKIE['REMEMBER_ME'];
     $isTokenValid = $Token->verifyValidityTknRememberMe($token);
 
-    if ($isTokenValid && $token===$isTokenValid['TOKEN']) {
+    if ($isTokenValid && $token === $isTokenValid['TOKEN']) {
         // Token is valid, log in the user
         $user = $User->getUserById($isTokenValid['ID_U']);
         $_SESSION['usr'] = $user['USERNAME'];
@@ -45,8 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['r'])) {
         echo '<div class="alert alert-danger">Error updating password!</div>';
     } else if ($r == '4') {
         echo '<div class="alert alert-danger">Password updated successfully!</div>';
-    } else if ($r == '5') {
-        echo '<div class="alert alert-danger">This email doesn\'t exist!</div>';
     }
 }
 
@@ -65,14 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die('Request expired. Retry later.');
     }
 
-    //** Check Login Attempts - Account Locking */
-    $ip_addr = getIPAddress();
-    if (!checkAttempts($pdo, $ip_addr)) {
-        logEvent('Login', 'Insuccess - too many tries', $ip_addr);
-        die('Too many login attempts. Retry later.');
-    }
-
     //** Check Captcha */
+    /*
     $captcha = $_POST['g-recaptcha-response'];
     $secretKey = getSecKeyCaptcha();
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
@@ -80,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$responseData->success) {
         logEvent('Login', 'Insuccess - captcha failed', '');
         die('CAPTCHA verification failed. Try again.');
-    }
+    }*/
 
     try {
         //** Check credentials - Fail-Open Flaws */ 
@@ -99,12 +92,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             die('Invalid input data.');
         }
 
+        //** Check Login Attempts - Account Locking (IP + Username) */
+        $ip_addr = getIPAddress();
+        if (!checkAttempts($pdo, $username, $ip_addr)) {
+            logEvent('Login', 'Insuccess - too many tries', $ip_addr);
+            die('Too many login attempts. Retry later.');
+        }
+
         $user = $User->getUserByUsername($username);
         $psw_saved = $user['PASSWORD'];
 
         if (!$user || !password_verify($password, $psw_saved)) {
             echo '<div class="alert alert-danger">Username or Password is incorrect! Please try again.</div>';
-            logAttempt($pdo, $ip_addr); // Registra tentativo fallito
+            logAttempt($pdo, $username, $ip_addr); // Registra tentativo fallito
             logEvent('Login', 'Insuccess - incorrect credentials', $_POST['username']);
             exit;
         }

@@ -57,7 +57,7 @@ function getIPAddress()
     }
 }
 
-function checkAttempts($pdo, $ip_address, $limit = 5, $time_frame = 3600)
+function checkAttempts($pdo, $username, $ip_address, $limit = 5, $time_frame = 3600)
 {
     // $time_frame = time period for which the account is blocked
     // $time_threshold = remaining time to unlock the account
@@ -66,9 +66,10 @@ function checkAttempts($pdo, $ip_address, $limit = 5, $time_frame = 3600)
 
     $Q = "SELECT COUNT(*) AS N_ATTEMPTS, MAX(TIME) AS last_attempt 
          FROM log_attempts 
-         WHERE IP_ADDR = :ip_addr AND TIME > :time_threshold";
+         WHERE IP_ADDR = :ip_addr AND USERNAME = :usr AND TIME > :time_threshold";
     $stmt = $pdo->prepare($Q);
     $stmt->bindParam(":ip_addr", $ip_address, PDO::PARAM_STR); // IP as string
+    $stmt->bindParam(":usr", $username, PDO::PARAM_STR);
     $stmt->bindParam(":time_threshold", $time_threshold, PDO::PARAM_INT);
     $stmt->execute();
 
@@ -80,14 +81,15 @@ function checkAttempts($pdo, $ip_address, $limit = 5, $time_frame = 3600)
     return true;
 }
 
-function logAttempt($pdo, $ip_address)
+function logAttempt($pdo, $username, $ip_address)
 {
     // Auth activities, sensitive transactions, blocked accesses, requests with attacks
     $now = time();
-    $Q = "INSERT INTO log_attempts (IP_ADDR, TIME, N_ATTEMPTS) 
-        VALUES (:ip, :now1, 1)
+    $Q = "INSERT INTO log_attempts (USERNAME, IP_ADDR, TIME, N_ATTEMPTS) 
+        VALUES (:usr, :ip, :now1, 1)
         ON DUPLICATE KEY UPDATE N_ATTEMPTS = N_ATTEMPTS + 1, TIME = :now2";
     $stmt = $pdo->prepare($Q);
+    $stmt->bindParam(":usr", $username, PDO::PARAM_STR);
     $stmt->bindParam(":ip", $ip_address, PDO::PARAM_STR);
     $stmt->bindParam(":now1", $now, PDO::PARAM_INT);
     $stmt->bindParam(":now2", $now, PDO::PARAM_INT);

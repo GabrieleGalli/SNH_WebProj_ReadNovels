@@ -26,6 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($novel_title == '' || $novel_content == '') {
         echo '<div class="alert alert-danger">Please fill in all the fields.</div>';
+    } else if ($premium_set == 1 && $premium == 0) {
+        //** Access control */
+        echo '<div class="alert alert-danger">You cannot insert a premium novel if you are not a premium user.</div>';
     } else {
         $result = $Crud->createShortNovel($id_u, $premium_set, $novel_title, $novel_content);
         if ($result) {
@@ -92,7 +95,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div><br>
             <?php } ?>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'],ENT_QUOTES, 'UTF-8') ?>">
+                <input type="hidden" name="csrf_token"
+                    value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
                 <button type="submit" class="btn btn-outline-dark" name="submitBTN">INSERT NEW NOVEL</button><br>
             </div>
         </form>

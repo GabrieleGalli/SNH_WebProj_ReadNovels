@@ -26,6 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($novel_title == '' || $file['error'] !== UPLOAD_ERR_OK) {
         echo '<div class="alert alert-danger">Please provide a title and upload a valid PDF file.</div>';
+    } else if ($premium_set == 1 && $premium == 0) {
+        //** Access control */
+        echo '<div class="alert alert-danger">You cannot insert a premium novel if you are not a premium user.</div>';
     } else {
         // Check that the file is a PDF
         $fileType = mime_content_type($file['tmp_name']);

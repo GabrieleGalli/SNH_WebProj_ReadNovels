@@ -7,6 +7,14 @@ require_once 'incl/auth_check.php';
 $title = 'Admin Control Panel';
 
 $USER = $User->getUserByUsername($_SESSION['usr']);
+
+//** Access control */
+if ($USER['USERNAME'] != 'admin') {
+    logEvent('Control panel', 'Insuccess - not admin', $_SESSION['usr']);
+    header('Location: dashboard.php');
+    exit;
+}
+
 $USERS = $User->getAllUsers();
 
 ?>
@@ -90,7 +98,7 @@ $USERS = $User->getAllUsers();
 
     document.querySelectorAll('.switch-premium').forEach(switchElement => {
         switchElement.addEventListener('change', function () {
-            const isChecked = this.checked; 
+            const isChecked = this.checked;
             const usrname = this.getAttribute('usr');
             // Ajax request to update premium status 
             fetch('incl/update_premium.php', {

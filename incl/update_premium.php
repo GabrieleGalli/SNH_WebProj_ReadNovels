@@ -6,6 +6,15 @@ require_once 'auth_check.php';
 
 header('Content-Type: application/json');
 
+$USER = $User->getUserByUsername($_SESSION['usr']);
+
+//** Access control */
+if ($USER['USERNAME'] != 'admin') {
+    logEvent('Update Premium', 'Insuccess - not admin', $_SESSION['usr']);
+    echo json_encode(['success' => false, 'error' => 'error']);
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the request's body and decode it from JSON 
     $data = json_decode(file_get_contents('php://input'), true);
