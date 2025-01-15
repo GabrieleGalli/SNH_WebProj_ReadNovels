@@ -15,11 +15,21 @@
 
 require_once __DIR__ . '/../incl/https_check.php';
 
-ini_set('session.gc_maxlifetime', 3600); // 1 ora
-ini_set('session.cookie_secure', '1'); // Cookie della sessione solo su HTTPS
-session_set_cookie_params(["SameSite" => "Strict"]); //none, lax, strict
-session_set_cookie_params(["Secure" => "true"]); //false, true
-session_set_cookie_params(["HttpOnly" => "true"]); //false, true
+//** Session Cookie - active for 1h (server side) or until browser is open (client side) */
+
+ini_set('session.gc_maxlifetime', 3600); // Durata massima della sessione di 1 ora
+ini_set('session.cookie_secure', '1'); // Cookie solo su HTTPS
+
+session_set_cookie_params([
+    "SameSite" => "Strict", // Protezione da richieste cross-site
+    "Secure" => true,       // Solo HTTPS
+    "HttpOnly" => true,     // Accessibile solo dal server
+    "Path" => "/",          // Valido per tutte le directory
+    "Domain" => "",         // Valido solo per il dominio corrente
+    "Lifetime" => "0"       // Cookie di sessione
+]);
+
+
 session_start();
 
 if (empty($_SESSION['csrf_token'])) {

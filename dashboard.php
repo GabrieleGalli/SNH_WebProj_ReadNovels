@@ -71,7 +71,7 @@ usort($all_novels, function ($a, $b) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once 'incl/bootstrap.php'; ?>
-
+    <script src="incl/script.js"></script>
     <title><?= $title ?></title>
 </head>
 
@@ -173,11 +173,5 @@ usort($all_novels, function ($a, $b) {
     ?>
 
 </body>
-
-<script>
-    function confirmDeletion() {
-        return confirm("Are you sure? This is not reversible.");
-    }
-</script>
 
 </html>

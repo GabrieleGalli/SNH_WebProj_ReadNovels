@@ -26,6 +26,7 @@ $USERS = $User->getAllUsers();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once 'incl/bootstrap.php'; ?>
+    <script src="incl/script.js"></script>
     <title><?= $title ?></title>
 </head>
 
@@ -115,10 +116,12 @@ $USERS = $User->getAllUsers();
 
             }).then(response => response.json()).then(data => {
                 if (data.success) {
-                    alert('Premium status updated successfully');
+                    sendAlert('Premium status updated successfully');
+                    //alert('Premium status updated successfully');
                 } else {
                     //console.error('Error:', data.message);
-                    alert('Error updating premium status');
+                    sendAlert('Error updating premium status');
+                    //alert('Error updating premium status');
                 }
             }).catch((error) => {
                 // Reset original state if fails

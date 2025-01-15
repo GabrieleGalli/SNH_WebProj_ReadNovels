@@ -66,7 +66,7 @@ function checkAttempts($pdo, $username, $ip_address, $limit = 5, $time_frame = 3
 
     $Q = "SELECT COUNT(*) AS N_ATTEMPTS, MAX(TIME) AS last_attempt 
          FROM log_attempts 
-         WHERE IP_ADDR = :ip_addr AND USERNAME = :usr AND TIME > :time_threshold";
+         WHERE IP_ADDR = :ip_addr OR USERNAME = :usr AND TIME > :time_threshold";
     $stmt = $pdo->prepare($Q);
     $stmt->bindParam(":ip_addr", $ip_address, PDO::PARAM_STR); // IP as string
     $stmt->bindParam(":usr", $username, PDO::PARAM_STR);

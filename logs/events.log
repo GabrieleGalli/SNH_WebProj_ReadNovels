@@ -310,3 +310,31 @@
 [2025-01-10 11:16:33] [::1] [gabri] [Login] Insuccess - incorrect credentials
 [2025-01-10 11:16:40] [::1] [gabri] [Login] Insuccess - incorrect credentials
 [2025-01-10 11:16:44] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-15 10:26:43] [::1] [gabri] [Login] Success
+[2025-01-15 10:26:59] [::1] [gabri] [Logout] 
+[2025-01-15 10:27:05] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-15 10:27:09] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-15 10:27:15] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-15 10:27:31] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-15 10:27:36] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-15 10:27:39] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-15 10:27:46] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-15 10:31:35] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-15 10:31:41] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-15 10:31:55] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-15 10:47:02] [::1] [gabri] [Login] Success
+[2025-01-15 10:47:37] [::1] [gabri] [Logout] 
+[2025-01-15 10:47:48] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-15 10:47:56] [::1] [gabri] [Login] Success
+[2025-01-15 10:51:56] [::1] [gabri] [Logout] 
+[2025-01-15 10:52:08] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-15 10:52:49] [::1] [gabri] [Login] Success
+[2025-01-15 10:52:55] [::1] [gabri] [Logout] 
+[2025-01-15 10:56:12] [::1] [admin] [Login] Success
+[2025-01-15 10:56:15] [::1] [admin] [Update Premium Reset] Success
+[2025-01-15 10:56:18] [::1] [admin] [Update Premium Reset] Success
+[2025-01-15 10:56:27] [::1] [admin] [Logout] 
+[2025-01-15 11:02:27] [::1] [gabri] [Login] Success
+[2025-01-15 11:03:52] [::1] [gabri] [Logout] 
+[2025-01-15 11:04:04] [::1] [gabri] [Login] Success
+[2025-01-15 11:04:05] [::1] [gabri] [Logout] 
