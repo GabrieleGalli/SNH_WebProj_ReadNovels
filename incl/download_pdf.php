@@ -33,7 +33,7 @@ if (isset($_GET['file'])) {
         if ($mime === 'application/pdf') {
             // Set the headers for the file download
             header('Content-Description: File Transfer');
-            header('Content-Type: $mime');
+            header("Content-Type: $mime");
             header('Content-Disposition: attachment; filename="' . basename($filepath) . '"');
             header('Expires: 0');
             header('Cache-Control: must-revalidate');

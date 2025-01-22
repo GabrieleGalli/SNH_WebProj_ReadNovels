@@ -7,7 +7,7 @@
  */
 
 if (!isset($_SESSION['usr'])) {
-   header('Location: index.php');
+   header("Location: http://localhost/SNH_WebProj_Novels/index.php");
    exit;
 }
 

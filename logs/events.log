@@ -338,3 +338,69 @@
 [2025-01-15 11:03:52] [::1] [gabri] [Logout] 
 [2025-01-15 11:04:04] [::1] [gabri] [Login] Success
 [2025-01-15 11:04:05] [::1] [gabri] [Logout] 
+[2025-01-22 08:13:25] [::1] [gabri] [Login] Success
+[2025-01-22 08:13:32] [::1] [gabri] [Logout] 
+[2025-01-22 08:13:48] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:13:54] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:13:58] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:14:01] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:14:05] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:14:07] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-22 08:14:16] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-22 08:15:13] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:15:19] [::1] [gabri] [Login] Success
+[2025-01-22 08:15:26] [::1] [gabri] [Control panel] Insuccess - not admin
+[2025-01-22 08:16:03] [::1] [gabri] [Control panel] Insuccess - not admin
+[2025-01-22 08:24:02] [::1] [] [Insert LG Novel] Insuccess - exceeded the maximum file size
+[2025-01-22 08:24:30] [::1] [] [Insert LG Novel] Insuccess - invalid file extension
+[2025-01-22 08:24:37] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2025-01-22 08:25:17] [::1] [gabri] [Logout] 
+[2025-01-22 08:25:24] [::1] [simo] [Login] Success
+[2025-01-22 08:26:44] [::1] [] [Insert LG Novel] Success - long novel uploaded successfully
+[2025-01-22 08:26:47] [::1] [simo] [Logout] 
+[2025-01-22 08:26:55] [::1] [gabri] [Login] Success
+[2025-01-22 08:26:58] [::1] [gabri] [Logout] 
+[2025-01-22 08:27:10] [::1] [gabri] [Login] Success
+[2025-01-22 08:27:43] [::1] [gabri] [Logout] 
+[2025-01-22 08:27:51] [::1] [admin] [Login] Success
+[2025-01-22 08:27:54] [::1] [admin] [Update Premium Reset] Success
+[2025-01-22 08:27:56] [::1] [admin] [Update Premium Reset] Success
+[2025-01-22 08:28:02] [::1] [admin] [Logout] 
+[2025-01-22 08:28:08] [::1] [gabri] [Login] Success
+[2025-01-22 08:28:27] [::1] [gabri] [Logout] 
+[2025-01-22 08:28:34] [::1] [simo] [Login] Success
+[2025-01-22 08:28:53] [::1] [simo] [Logout] 
+[2025-01-22 08:34:17] [::1] [simo] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:34:32] [::1] [simo] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:35:40] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:35:57] [::1] [gabri] [Login] Success
+[2025-01-22 08:36:05] [::1] [gabri] [Logout] 
+[2025-01-22 08:42:09] [::1] [gabri] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:42:22] [::1] [::1] [Login] Insuccess - too many tries
+[2025-01-22 08:42:56] [::1] [gabri] [Login] Success
+[2025-01-22 08:43:13] [::1] [gabri] [Update Premium] Insuccess - not admin
+[2025-01-22 08:45:05] [::1] [gabri] [Logout] 
+[2025-01-22 08:45:31] [::1] [gabri] [Login] Success
+[2025-01-22 08:45:45] [::1] [gabri] [Update Premium] Insuccess - not admin
+[2025-01-22 08:45:51] [::1] [gabri] [Logout] 
+[2025-01-22 08:46:00] [::1] [simo] [Login] Success
+[2025-01-22 08:46:04] [::1] [simo] [Logout] 
+[2025-01-22 08:46:18] [::1] [gabri] [Login] Success
+[2025-01-22 08:46:47] [::1] [gabri] [Logout] 
+[2025-01-22 08:46:53] [::1] [simo] [Login] Insuccess - incorrect credentials
+[2025-01-22 08:47:01] [::1] [simo] [Login] Success
+[2025-01-22 08:47:42] [::1] [simo] [Logout] 
+[2025-01-22 08:49:18] [::1] [gabri] [Login] Success
+[2025-01-22 08:51:38] [::1] [gabri] [Login] Success
+[2025-01-22 08:51:52] [::1] [gabri] [Update Premium] Insuccess - not admin
+[2025-01-22 08:51:56] [::1] [gabri] [Logout] 
+[2025-01-22 09:00:47] [::1] [Array] [PSW Reset] Insuccess - error in updating password, same password
+[2025-01-22 09:01:05] [::1] [gabri] [PSW Reset] Success
+[2025-01-22 09:01:14] [::1] [gabri] [Login] Success
+[2025-01-22 09:01:25] [::1] [gabri] [Logout] 
+[2025-01-22 09:01:32] [::1] [admin] [Login] Success
+[2025-01-22 09:01:34] [::1] [admin] [Update Premium Reset] Success
+[2025-01-22 09:01:36] [::1] [admin] [Update Premium Reset] Success
+[2025-01-22 09:02:29] [::1] [admin] [Logout] 
+[2025-01-22 09:03:28] [::1] [gabri] [Login] Success
+[2025-01-22 09:03:36] [::1] [gabri] [Control panel] Insuccess - not admin

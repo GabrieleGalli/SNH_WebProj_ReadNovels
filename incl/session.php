@@ -21,12 +21,12 @@ ini_set('session.gc_maxlifetime', 3600); // Durata massima della sessione di 1 o
 ini_set('session.cookie_secure', '1'); // Cookie solo su HTTPS
 
 session_set_cookie_params([
-    "SameSite" => "Strict", // Protezione da richieste cross-site
+    "SameSite" => "Strict",   // Protezione da richieste cross-site
     "Secure" => true,       // Solo HTTPS
-    "HttpOnly" => true,     // Accessibile solo dal server
-    "Path" => "/",          // Valido per tutte le directory
+    "HttpOnly" => true,       // Accessibile solo dal server
+    "Path" => "/",        // Valido per tutte le directory
     "Domain" => "",         // Valido solo per il dominio corrente
-    "Lifetime" => "0"       // Cookie di sessione
+    "Lifetime" => "0"         // Cookie di sessione
 ]);
 
 
